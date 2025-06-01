@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Bars3Icon, XMarkIcon, SunIcon, MoonIcon } from '@heroicons/react/24/outline'
 import { useAuth } from '../context/AuthContext'
 import ProfileDropdown from './ProfileDropdown'
+import { useDarkMode } from '../context/DarkModeContext'
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -10,6 +11,7 @@ const Navbar = () => {
   const location = useLocation()
   const { user, logout } = useAuth()
   const navigate = useNavigate()
+  const { isDarkMode, toggleDarkMode } = useDarkMode()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -50,7 +52,7 @@ const Navbar = () => {
   return (
     <header 
       className={`fixed w-full top-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/80 backdrop-blur-md shadow-md' : 'bg-white shadow'
+        isScrolled ? 'bg-white/80 backdrop-blur-md shadow-md dark:bg-gray-900/80' : 'bg-white shadow dark:bg-gray-900'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -61,15 +63,15 @@ const Navbar = () => {
               to="/" 
               className="group"
             >
-              <span className="text-xl font-semibold text-gray-900 hover:text-primary-600 transition-colors duration-200">
+              <span className="text-xl font-semibold text-gray-900 hover:text-primary-600 transition-colors duration-200 dark:text-white dark:hover:text-primary-400">
                 STED-FY Study Hub
               </span>
             </Link>
           </div>
 
           {/* Nav Links */}
-          <div className="hidden md:flex items-center space-x-8">
-            <ul className="flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-4">
+            <ul className="flex items-center space-x-8 mr-4">
               {navItems.map((item) => (
                 <li key={item.path}>
                   <Link
@@ -79,15 +81,15 @@ const Navbar = () => {
                         ? 'bg-primary-600 text-white rounded-lg hover:bg-primary-700 hover:shadow-glow'
                         : `${
                             isActive(item.path)
-                              ? 'text-primary-600'
-                              : 'text-gray-600 hover:text-primary-600'
+                              ? 'text-primary-600 dark:text-primary-400'
+                              : 'text-gray-600 hover:text-primary-600 dark:text-gray-300 dark:hover:text-primary-400'
                           }`
                     }`}
                   >
                     {item.label}
                     {!item.isSpecial && (
                       <span 
-                        className={`absolute bottom-0 left-0 w-full h-0.5 bg-primary-600 transform origin-left transition-transform duration-300 ${
+                        className={`absolute bottom-0 left-0 w-full h-0.5 bg-primary-600 dark:bg-primary-400 transform origin-left transition-transform duration-300 ${
                           isActive(item.path) ? 'scale-x-100' : 'scale-x-0'
                         }`}
                       />
@@ -96,23 +98,46 @@ const Navbar = () => {
                 </li>
               ))}
             </ul>
-            {user && (
-              <div className="ml-4">
+            
+            <div className="flex items-center">
+              {user && (
                 <ProfileDropdown onLogout={handleLogout} user={user} />
+              )}
+              <div className="pl-10 pr-12">
+                <button
+                  onClick={toggleDarkMode}
+                  className="p-2 rounded-lg text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                  aria-label="Toggle dark mode"
+                >
+                  {isDarkMode ? (
+                    <SunIcon className="h-5 w-5" />
+                  ) : (
+                    <MoonIcon className="h-5 w-5" />
+                  )}
+                </button>
               </div>
-            )}
+            </div>
           </div>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center">
-            {user && (
-              <div className="mr-4">
-                <ProfileDropdown onLogout={handleLogout} user={user} />
-              </div>
-            )}
+            {user && <ProfileDropdown onLogout={handleLogout} user={user} />}
+            <div className="pl-8 pr-10">
+              <button
+                onClick={toggleDarkMode}
+                className="p-2 rounded-lg text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                aria-label="Toggle dark mode"
+              >
+                {isDarkMode ? (
+                  <SunIcon className="h-5 w-5" />
+                ) : (
+                  <MoonIcon className="h-5 w-5" />
+                )}
+              </button>
+            </div>
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-600 hover:text-gray-900 focus:outline-none"
+              className="ml-4 text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white focus:outline-none"
             >
               {isMenuOpen ? (
                 <XMarkIcon className="h-6 w-6" />
@@ -132,7 +157,7 @@ const Navbar = () => {
             : 'opacity-0 -translate-y-4 pointer-events-none'
         }`}
       >
-        <div className="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-gray-100">
+        <div className="px-2 pt-2 pb-3 space-y-1 bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800">
           {navItems.map((item) => (
             <Link
               key={item.path}
@@ -141,8 +166,8 @@ const Navbar = () => {
                 item.isSpecial
                   ? 'bg-primary-600 text-white hover:bg-primary-700'
                   : isActive(item.path)
-                    ? 'bg-primary-50 text-primary-600'
-                    : 'text-gray-600 hover:bg-gray-50 hover:text-primary-600'
+                    ? 'bg-primary-50 text-primary-600 dark:bg-primary-900/50 dark:text-primary-400'
+                    : 'text-gray-600 hover:bg-gray-50 hover:text-primary-600 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-primary-400'
               }`}
               onClick={() => setIsMenuOpen(false)}
             >

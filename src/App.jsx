@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
+import { DarkModeProvider } from './context/DarkModeContext';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Home from './pages/Home';
@@ -25,9 +26,9 @@ const AppContent = () => {
   const isAuthPage = ['/login', '/signup'].includes(location.pathname);
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-white dark:bg-gray-900 transition-colors duration-200">
       <Navbar />
-      <main className="flex-grow pt-16">
+      <main className="flex-grow pt-16 bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-200">
         <Routes>
           {/* Public Routes */}
           <Route path="/" element={<Home />} />
@@ -100,9 +101,11 @@ const AppContent = () => {
 function App() {
   return (
     <Router>
-      <AuthProvider>
-        <AppContent />
-      </AuthProvider>
+      <DarkModeProvider>
+        <AuthProvider>
+          <AppContent />
+        </AuthProvider>
+      </DarkModeProvider>
     </Router>
   );
 }

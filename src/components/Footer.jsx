@@ -2,17 +2,17 @@ import { Link } from 'react-router-dom'
 
 const Footer = () => {
   return (
-    <footer className="bg-white border-t border-gray-100">
+    <footer className="bg-white dark:bg-gray-800 border-t border-gray-100 dark:border-gray-700 transition-colors duration-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="animate-fade-in-up" style={{ animationDelay: '100ms' }}>
             <div className="mb-6">
-              <span className="text-xl font-semibold text-gray-900">
+              <span className="text-xl font-semibold text-gray-900 dark:text-white transition-colors duration-200">
                 STED-FY Study Hub
               </span>
             </div>
-            <p className="text-gray-600 text-sm leading-relaxed">
+            <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed transition-colors duration-200">
               Empowering 1st-year students with comprehensive academic resources, 
               study materials, and a supportive learning community.
             </p>
@@ -20,7 +20,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div className="animate-fade-in-up" style={{ animationDelay: '200ms' }}>
-            <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-4">Quick Links</h3>
+            <h3 className="text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wider mb-4 transition-colors duration-200">Quick Links</h3>
             <ul className="space-y-3">
               {[
                 { path: '/subjects', label: 'Question Bank' },
@@ -32,9 +32,9 @@ const Footer = () => {
                 <li key={link.path}>
                   <Link 
                     to={link.path} 
-                    className="group flex items-center text-gray-600 hover:text-primary-600 transition-colors duration-200"
+                    className="group flex items-center text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200"
                   >
-                    <span className="w-1.5 h-1.5 rounded-full bg-gray-300 mr-2 transition-colors duration-200 group-hover:bg-primary-600" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-gray-300 dark:bg-gray-600 mr-2 transition-colors duration-200 group-hover:bg-primary-600 dark:group-hover:bg-primary-400" />
                     {link.label}
                   </Link>
                 </li>
@@ -44,7 +44,7 @@ const Footer = () => {
 
           {/* Company */}
           <div className="animate-fade-in-up" style={{ animationDelay: '300ms' }}>
-            <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-4">Company</h3>
+            <h3 className="text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wider mb-4 transition-colors duration-200">Company</h3>
             <ul className="space-y-3">
               {[
                 { path: '/about', label: 'About Us' },
@@ -54,9 +54,9 @@ const Footer = () => {
                 <li key={link.path}>
                   <Link 
                     to={link.path} 
-                    className="group flex items-center text-gray-600 hover:text-primary-600 transition-colors duration-200"
+                    className="group flex items-center text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200"
                   >
-                    <span className="w-1.5 h-1.5 rounded-full bg-gray-300 mr-2 transition-colors duration-200 group-hover:bg-primary-600" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-gray-300 dark:bg-gray-600 mr-2 transition-colors duration-200 group-hover:bg-primary-600 dark:group-hover:bg-primary-400" />
                     {link.label}
                   </Link>
                 </li>
@@ -66,28 +66,28 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div className="animate-fade-in-up" style={{ animationDelay: '400ms' }}>
-            <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-4">Contact</h3>
+            <h3 className="text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wider mb-4 transition-colors duration-200">Contact</h3>
             <ul className="space-y-3">
-              <li className="group flex items-start space-x-3 text-gray-600">
-                <span className="mt-1 flex-shrink-0 w-5 h-5 rounded-full bg-primary-100 flex items-center justify-center group-hover:bg-primary-200 transition-colors duration-200">
-                  <span className="text-primary-600 text-sm">📍</span>
+              <li className="group flex items-start space-x-3 text-gray-600 dark:text-gray-300">
+                <span className="mt-1 flex-shrink-0 w-5 h-5 rounded-full bg-primary-100 dark:bg-primary-900 flex items-center justify-center group-hover:bg-primary-200 dark:group-hover:bg-primary-800 transition-colors duration-200">
+                  <span className="text-primary-600 dark:text-primary-400 text-sm">📍</span>
                 </span>
                 <span>Dhawas, Near Manas Hospital, Jaipur</span>
               </li>
               <li className="group flex items-start space-x-3">
-                <span className="mt-1 flex-shrink-0 w-5 h-5 rounded-full bg-primary-100 flex items-center justify-center group-hover:bg-primary-200 transition-colors duration-200">
-                  <span className="text-primary-600 text-sm">📧</span>
+                <span className="mt-1 flex-shrink-0 w-5 h-5 rounded-full bg-primary-100 dark:bg-primary-900 flex items-center justify-center group-hover:bg-primary-200 dark:group-hover:bg-primary-800 transition-colors duration-200">
+                  <span className="text-primary-600 dark:text-primary-400 text-sm">📧</span>
                 </span>
                 <a 
                   href="mailto:support@sted-fy.com" 
-                  className="text-gray-600 hover:text-primary-600 transition-colors duration-200"
+                  className="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200"
                 >
                   support@sted-fy.com
                 </a>
               </li>
-              <li className="group flex items-start space-x-3 text-gray-600">
-                <span className="mt-1 flex-shrink-0 w-5 h-5 rounded-full bg-primary-100 flex items-center justify-center group-hover:bg-primary-200 transition-colors duration-200">
-                  <span className="text-primary-600 text-sm">⏰</span>
+              <li className="group flex items-start space-x-3 text-gray-600 dark:text-gray-300">
+                <span className="mt-1 flex-shrink-0 w-5 h-5 rounded-full bg-primary-100 dark:bg-primary-900 flex items-center justify-center group-hover:bg-primary-200 dark:group-hover:bg-primary-800 transition-colors duration-200">
+                  <span className="text-primary-600 dark:text-primary-400 text-sm">⏰</span>
                 </span>
                 <span>Mon - Fri, 9:00 AM - 6:00 PM</span>
               </li>
@@ -95,9 +95,9 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-gray-100">
+        <div className="mt-12 pt-8 border-t border-gray-100 dark:border-gray-700">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-500 text-sm">
+            <p className="text-gray-500 dark:text-gray-400 text-sm transition-colors duration-200">
               © {new Date().getFullYear()} STED-FY Study Hub. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
@@ -118,7 +118,7 @@ const Footer = () => {
                 <a
                   key={social.name}
                   href="#"
-                  className="group text-gray-400 hover:text-primary-600 transition-colors duration-200"
+                  className="group text-gray-400 dark:text-gray-500 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200"
                 >
                   <span className="sr-only">{social.name}</span>
                   <svg 

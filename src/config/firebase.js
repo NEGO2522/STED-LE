@@ -1,29 +1,34 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth, GoogleAuthProvider, GithubAuthProvider } from 'firebase/auth';
+import { getFirestore } from 'firebase/firestore';
 import { getAnalytics } from 'firebase/analytics';
 
-// Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDIzvFQ-FJWwZK7kZdlNXfj2kBiFoJjrYo",
-  authDomain: "sted-fy.firebaseapp.com",
-  projectId: "sted-fy",
-  storageBucket: "sted-fy.appspot.com",
-  messagingSenderId: "814197213268",
-  appId: "1:814197213268:web:30a69ed0510259848585c1",
-  measurementId: "G-1HH6KGM3Y3"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-const auth = getAuth(app);
 
-// Configure Google Auth Provider
-const googleProvider = new GoogleAuthProvider();
+// Initialize Analytics
+export const analytics = getAnalytics(app);
+
+// Get Auth and Firestore instances
+export const auth = getAuth(app);
+export const db = getFirestore(app);
+
+// Configure Auth Providers
+export const googleProvider = new GoogleAuthProvider();
 googleProvider.setCustomParameters({
   prompt: 'select_account'
 });
 
-const githubProvider = new GithubAuthProvider();
+export const githubProvider = new GithubAuthProvider();
 
-export { auth, googleProvider, githubProvider, analytics }; 
+export default app; 
