@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate, useLocation, Navigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { FaGoogle, FaGithub } from 'react-icons/fa';
+import { FaGoogle } from 'react-icons/fa';
 
 const Signup = () => {
   const [email, setEmail] = useState('');
@@ -10,18 +10,16 @@ const Signup = () => {
   const [name, setName] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-  const { signup, loginWithGoogle, loginWithGithub, user, loading: authLoading } = useAuth();
+  const { signup, loginWithGoogle, user, loading: authLoading } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Get the return URL from location state, default to home page
   const from = location.state?.from || '/';
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
-    
-    // Basic validation
+
     if (!email || !password || !confirmPassword || !name) {
       setError('Please fill in all fields');
       return;
@@ -56,20 +54,6 @@ const Signup = () => {
     }
   };
 
-  const handleGithubLogin = async () => {
-    try {
-      setLoading(true);
-      setError('');
-      await loginWithGithub();
-      navigate(from, { replace: true });
-    } catch (error) {
-      setError(error.message || 'Failed to sign up with GitHub');
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  // Show loading state while auth is initializing
   if (authLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
@@ -81,7 +65,6 @@ const Signup = () => {
     );
   }
 
-  // If user is already logged in, redirect them
   if (user) {
     return <Navigate to={from} replace />;
   }
@@ -115,15 +98,6 @@ const Signup = () => {
           >
             <FaGoogle className="h-4 w-4 text-red-500 mr-2" />
             Continue with Google
-          </button>
-
-          <button
-            onClick={handleGithubLogin}
-            disabled={loading}
-            className="w-full flex items-center justify-center px-4 py-2 border border-gray-300 rounded-md shadow-sm bg-white hover:bg-gray-50 text-sm font-medium text-gray-700 transition-colors duration-150"
-          >
-            <FaGithub className="h-4 w-4 mr-2" />
-            Continue with GitHub
           </button>
         </div>
 
@@ -230,4 +204,4 @@ const Signup = () => {
   );
 };
 
-export default Signup; 
+export default Signup;

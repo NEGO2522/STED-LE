@@ -1,23 +1,21 @@
 import React, { useState } from 'react';
 import { Link, useNavigate, useLocation, Navigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { FaGoogle, FaGithub } from 'react-icons/fa';
+import { FaGoogle } from 'react-icons/fa';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-  const { login, loginWithGoogle, loginWithGithub, user, loading: authLoading } = useAuth();
+  const { login, loginWithGoogle, user, loading: authLoading } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Get the return URL from location state, default to home page
   const from = location.state?.from || '/';
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
     try {
       setError('');
       setLoading(true);
@@ -45,21 +43,6 @@ const Login = () => {
     }
   };
 
-  const handleGithubLogin = async () => {
-    try {
-      setError('');
-      setLoading(true);
-      await loginWithGithub();
-      navigate(from, { replace: true });
-    } catch (err) {
-      console.error('GitHub login error:', err);
-      setError(err.message || 'Failed to sign in with GitHub.');
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  // Show loading state while auth is initializing
   if (authLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
@@ -71,7 +54,6 @@ const Login = () => {
     );
   }
 
-  // If user is already logged in, redirect them
   if (user) {
     return <Navigate to={from} replace />;
   }
@@ -105,15 +87,6 @@ const Login = () => {
           >
             <FaGoogle className="h-4 w-4 text-red-500 mr-2" />
             Continue with Google
-          </button>
-
-          <button
-            onClick={handleGithubLogin}
-            disabled={loading}
-            className="w-full flex items-center justify-center px-4 py-2 border border-gray-300 rounded-md shadow-sm bg-white hover:bg-gray-50 text-sm font-medium text-gray-700 transition-colors duration-150"
-          >
-            <FaGithub className="h-4 w-4 mr-2" />
-            Continue with GitHub
           </button>
         </div>
 
@@ -190,4 +163,4 @@ const Login = () => {
   );
 };
 
-export default Login; 
+export default Login;
