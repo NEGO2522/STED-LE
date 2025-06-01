@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
@@ -19,122 +19,89 @@ import Articles from './pages/Articles'
 import Community from './pages/Community'
 import Profile from './pages/Profile'
 
+// Wrapper component to handle conditional footer rendering
+const AppContent = () => {
+  const location = useLocation();
+  const isAuthPage = ['/login', '/signup'].includes(location.pathname);
+
+  return (
+    <div className="flex flex-col min-h-screen">
+      <Navbar />
+      <main className="flex-grow pt-16">
+        <Routes>
+          {/* Public Routes */}
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/terms" element={<TermsConditions />} />
+          <Route path="/articles" element={<Articles />} />
+          <Route path="/tips" element={<Tips />} />
+
+          {/* Auth Routes - These won't be directly accessible from navigation */}
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+
+          {/* Protected Routes - Require Authentication */}
+          <Route
+            path="/calculator"
+            element={
+              <ProtectedRoute>
+                <Calculator />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/flashcards"
+            element={
+              <ProtectedRoute>
+                <Flashcard />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/subjects"
+            element={
+              <ProtectedRoute>
+                <Subjects />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/exams"
+            element={
+              <ProtectedRoute>
+                <Exams />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/community"
+            element={
+              <ProtectedRoute>
+                <Community />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/profile"
+            element={
+              <ProtectedRoute>
+                <Profile />
+              </ProtectedRoute>
+            }
+          />
+        </Routes>
+      </main>
+      {!isAuthPage && <Footer />}
+    </div>
+  );
+};
+
 function App() {
   return (
     <Router>
       <AuthProvider>
-        <div className="flex flex-col min-h-screen">
-          <Navbar />
-          <main className="flex-grow">
-            <Routes>
-              {/* Public Routes */}
-              <Route path="/login" element={<Login />} />
-              <Route path="/signup" element={<Signup />} />
-
-              {/* Protected Routes */}
-              <Route 
-                path="/" 
-                element={
-                  <ProtectedRoute>
-                    <Home />
-                  </ProtectedRoute>
-                } 
-              />
-              <Route 
-                path="/profile" 
-                element={
-                  <ProtectedRoute>
-                    <Profile />
-                  </ProtectedRoute>
-                } 
-              />
-              <Route 
-                path="/about" 
-                element={
-                  <ProtectedRoute>
-                    <About />
-                  </ProtectedRoute>
-                } 
-              />
-              <Route 
-                path="/contact" 
-                element={
-                  <ProtectedRoute>
-                    <Contact />
-                  </ProtectedRoute>
-                } 
-              />
-              <Route 
-                path="/terms-conditions" 
-                element={
-                  <ProtectedRoute>
-                    <TermsConditions />
-                  </ProtectedRoute>
-                } 
-              />
-              <Route 
-                path="/calculator" 
-                element={
-                  <ProtectedRoute>
-                    <Calculator />
-                  </ProtectedRoute>
-                } 
-              />
-              <Route 
-                path="/flashcard" 
-                element={
-                  <ProtectedRoute>
-                    <Flashcard />
-                  </ProtectedRoute>
-                } 
-              />
-              <Route 
-                path="/tips" 
-                element={
-                  <ProtectedRoute>
-                    <Tips />
-                  </ProtectedRoute>
-                } 
-              />
-              <Route 
-                path="/subjects" 
-                element={
-                  <ProtectedRoute>
-                    <Subjects />
-                  </ProtectedRoute>
-                } 
-              />
-              <Route 
-                path="/exams" 
-                element={
-                  <ProtectedRoute>
-                    <Exams />
-                  </ProtectedRoute>
-                } 
-              />
-              <Route 
-                path="/articles" 
-                element={
-                  <ProtectedRoute>
-                    <Articles />
-                  </ProtectedRoute>
-                } 
-              />
-              <Route 
-                path="/community" 
-                element={
-                  <ProtectedRoute>
-                    <Community />
-                  </ProtectedRoute>
-                } 
-              />
-
-              {/* Redirect any unknown routes to home */}
-              <Route path="*" element={<Navigate to="/" replace />} />
-            </Routes>
-          </main>
-          <Footer />
-        </div>
+        <AppContent />
       </AuthProvider>
     </Router>
   );
