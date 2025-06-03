@@ -5,7 +5,7 @@ const About = () => {
     <div className="pt-16 md:pt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-blue-700 mb-4">About STED-FY</h1>
+          <h1 className="text-4xl font-bold text-blue-700 mb-4">About NEXT</h1>
           <p className="text-xl text-gray-600">Empowering students with knowledge and resources</p>
         </div>
 
@@ -13,7 +13,7 @@ const About = () => {
           <div>
             <h2 className="text-2xl font-semibold text-blue-600 mb-4">Our Mission</h2>
             <p className="text-gray-700 leading-relaxed">
-              At STED-FY, we are committed to making quality education accessible to all students. 
+              At NEXT, we are committed to making quality education accessible to all students. 
               Our platform provides comprehensive study materials, previous year questions, and 
               interactive learning tools to help students excel in their academic journey.
             </p>
@@ -38,7 +38,7 @@ const About = () => {
         </div>
 
         <div className="mt-16">
-          <h2 className="text-2xl font-semibold text-blue-600 mb-6 text-center">Why Choose STED-FY?</h2>
+          <h2 className="text-2xl font-semibold text-blue-600 mb-6 text-center">Why Choose NEXT?</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-white p-6 rounded-lg shadow-md">
               <h3 className="text-xl font-semibold text-blue-600 mb-3">Comprehensive Resources</h3>
@@ -68,7 +68,7 @@ const About = () => {
               <h3 className="text-xl font-semibold">Kshitij Jain</h3>
               <p className="text-gray-600 mt-2">Co-Founder</p>
               <p className="text-gray-700 mt-4">
-                With a passion for education and technology, Kshitij co-founded STED-FY to help students 
+                With a passion for education and technology, Kshitij co-founded NEXT to help students 
                 access quality educational resources and achieve their academic goals.
               </p>
             </div>
@@ -76,7 +76,7 @@ const About = () => {
               <h3 className="text-xl font-semibold">Harsh Agarwal</h3>
               <p className="text-gray-600 mt-2">Co-Founder</p>
               <p className="text-gray-700 mt-4">
-                Bringing technical expertise and innovation to education, Harsh co-founded STED-FY 
+                Bringing technical expertise and innovation to education, Harsh co-founded NEXT 
                 with a vision to create an accessible and comprehensive learning platform.
               </p>
             </div>

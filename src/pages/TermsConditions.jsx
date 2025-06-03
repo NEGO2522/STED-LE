@@ -13,7 +13,7 @@ const TermsConditions = () => {
           <section>
             <h2 className="text-2xl font-semibold text-gray-900 mb-4">1. Acceptance of Terms</h2>
             <p className="text-gray-700 leading-relaxed">
-              By accessing and using the STED-FY platform, you agree to be bound by these Terms and Conditions.
+              By accessing and using the NEXT platform, you agree to be bound by these Terms and Conditions.
               If you do not agree to these terms, please do not use our services.
             </p>
           </section>
@@ -62,7 +62,7 @@ const TermsConditions = () => {
           <section>
             <h2 className="text-2xl font-semibold text-gray-900 mb-4">6. Limitation of Liability</h2>
             <p className="text-gray-700 leading-relaxed">
-              STED-FY is not liable for any damages arising from the use or inability to use our services.
+              NEXT is not liable for any damages arising from the use or inability to use our services.
               We provide our services "as is" without any warranties.
             </p>
           </section>

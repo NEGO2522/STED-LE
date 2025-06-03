@@ -9,7 +9,7 @@ const Footer = () => {
           <div className="animate-fade-in-up" style={{ animationDelay: '100ms' }}>
             <div className="mb-6">
               <span className="text-xl font-semibold text-gray-900 dark:text-white transition-colors duration-200">
-                STED-FY Study Hub
+                NEXT Study Hub
               </span>
             </div>
             <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed transition-colors duration-200">
@@ -23,7 +23,7 @@ const Footer = () => {
             <h3 className="text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wider mb-4 transition-colors duration-200">Quick Links</h3>
             <ul className="space-y-3">
               {[
-                { path: '/subjects', label: 'Question Bank' },
+                { path: '/subjects', label: 'Syllabus' },
                 { path: '/exams', label: 'PYQ\'s' },
                 { path: '/articles', label: 'Notes' },
                 { path: '/calculator', label: 'Calculator' },
@@ -98,7 +98,7 @@ const Footer = () => {
         <div className="mt-12 pt-8 border-t border-gray-100 dark:border-gray-700">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-500 dark:text-gray-400 text-sm transition-colors duration-200">
-              © {new Date().getFullYear()} STED-FY Study Hub. All rights reserved.
+              © {new Date().getFullYear()} NEXT Study Hub. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               {[

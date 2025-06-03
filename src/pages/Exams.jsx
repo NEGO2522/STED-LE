@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { AcademicCapIcon, DocumentIcon, ChevronLeftIcon, ComputerDesktopIcon, BriefcaseIcon, CalculatorIcon, BookOpenIcon } from '@heroicons/react/24/outline'
+import { AcademicCapIcon, DocumentIcon, ChevronLeftIcon, ComputerDesktopIcon, BriefcaseIcon, CalculatorIcon, BookOpenIcon, PencilIcon, WrenchIcon, PaintBrushIcon, BeakerIcon } from '@heroicons/react/24/outline'
 
 const Exams = () => {
   const [activeTab, setActiveTab] = useState(null);
@@ -10,16 +10,26 @@ const Exams = () => {
   // Define specializations for each department
   const departmentSpecializations = {
     "Computer Science": {
-      "General": ["bca-general"],
-      "Artificial Intelligence": ["bca-ai", "btech-ai"],
+      "General": ["bca-general", "bca-1st-year", "bca-2nd-year", "mca-1st-year"],
+      "Artificial Intelligence": ["bca-ai", "btech-ai-ds"],
       "Cloud Computing": ["btech-cloud"],
-      "Process Automation": ["bca-pa"]
+      "Process Automation": ["bca-pa"],
+      "Game Development": ["bca-game-dev"],
+      "Mobile & Frontend": ["bca-mobile-frontend"]
     },
     "Management": {
       "General": ["mba", "bba"]
     },
     "Commerce": {
       "General": ["bcom"]
+    },
+    "Engineering": {
+      "Civil": ["civil"],
+      "Electrical": ["eee"],
+      "Digital Electronics": ["de"],
+      "Design": ["bdes", "barch"],
+      "Arts & Visual": ["bva"],
+      "Basic Sciences": ["mathematics", "environmental-studies", "english"]
     }
   };
 
@@ -30,71 +40,71 @@ const Exams = () => {
       subjects: [
         {
           title: "Programming Fundamentals of C",
-          path: "/STED-FY Data/ESE 2022-23/BCACCA1102_1_1_BCA_Programming Fundamentals of C_ Set 1.docx"
+          path: "/NEXT Data/ESE 2022-23/BCACCA1102_1_1_BCA_Programming Fundamentals of C_ Set 1.docx"
         },
         {
           title: "Web Designing",
-          path: "/STED-FY Data/ESE 2022-23/BCACCA1103_I_I_BCA_WEB DESIGNING_SET 1.docx"
+          path: "/NEXT Data/ESE 2022-23/BCACCA1103_I_I_BCA_WEB DESIGNING_SET 1.docx"
         },
         {
           title: "Computer Organization & Architecture",
-          path: "/STED-FY Data/ESE 2022-23/BCACCA1104_Ist Year_I Semester_BCA_COA_ Set 1.docx"
+          path: "/NEXT Data/ESE 2022-23/BCACCA1104_Ist Year_I Semester_BCA_COA_ Set 1.docx"
         },
         {
           title: "Fundamentals of IT",
-          path: "/STED-FY Data/ESE 2022-23/BCACCA1105_FOIT_ESE_2022_BCA General (A+B+C)1st_Year_1st_Sem_Set A.docx"
+          path: "/NEXT Data/ESE 2022-23/BCACCA1105_FOIT_ESE_2022_BCA General (A+B+C)1st_Year_1st_Sem_Set A.docx"
         },
         {
           title: "Computer Networks",
-          path: "/STED-FY Data/ESE 2022-23/BCACCA2101 _Computer Networks_ESE_2022-23_Set B.docx"
+          path: "/NEXT Data/ESE 2022-23/BCACCA2101 _Computer Networks_ESE_2022-23_Set B.docx"
         },
         {
           title: "OOPs With Java",
-          path: "/STED-FY Data/ESE 2022-23/BCACCA2102_2ndYear_2ndSemester_BCA_OOPsWithJava_ Set_1.docx"
+          path: "/NEXT Data/ESE 2022-23/BCACCA2102_2ndYear_2ndSemester_BCA_OOPsWithJava_ Set_1.docx"
         },
         {
           title: "Data Structures & Algorithms",
-          path: "/STED-FY Data/ESE 2022-23/BCACCA2103_I Year_II Semester_BCA_DSA_ Set 1.docx"
+          path: "/NEXT Data/ESE 2022-23/BCACCA2103_I Year_II Semester_BCA_DSA_ Set 1.docx"
         },
         {
           title: "Software Engineering",
-          path: "/STED-FY Data/ESE 2022-23/BCACCA2105_Software Engineering ESE-BCA (Set-B) Back.docx"
+          path: "/NEXT Data/ESE 2022-23/BCACCA2105_Software Engineering ESE-BCA (Set-B) Back.docx"
         },
         {
           title: "RDBMS",
-          path: "/STED-FY Data/ESE 2022-23/BCACCA3101_Year2_Sem3_rdbms_ Set 1 or 2 - Shivani Gupta.docx"
+          path: "/NEXT Data/ESE 2022-23/BCACCA3101_Year2_Sem3_rdbms_ Set 1 or 2 - Shivani Gupta.docx"
         },
         {
           title: "Linux & Shell Script",
-          path: "/STED-FY Data/ESE 2022-23/BCACCA3102 _2nd_3rd Semester_BCA_Linux_Shell_Script_ Set 1.docx"
+          path: "/NEXT Data/ESE 2022-23/BCACCA3102 _2nd_3rd Semester_BCA_Linux_Shell_Script_ Set 1.docx"
         },
         {
           title: "Python Programming",
-          path: "/STED-FY Data/ESE 2022-23/BCACCA3103_2_3_BCA_PythonProgramming_ Set_1 - Bindiya Jain.docx"
+          path: "/NEXT Data/ESE 2022-23/BCACCA3103_2_3_BCA_PythonProgramming_ Set_1 - Bindiya Jain.docx"
         },
         {
           title: "Software Testing",
-          path: "/STED-FY Data/ESE 2022-23/BCACCA3104_Software Testing_ESE_2022-23(O)_Set No. (1).docx"
+          path: "/NEXT Data/ESE 2022-23/BCACCA3104_Software Testing_ESE_2022-23(O)_Set No. (1).docx"
         },
         {
           title: "Big Data Analysis",
-          path: "/STED-FY Data/ESE 2022-23/BCACCA4101_2_IV_BCA_BIGDATAANALYSIS_ Set 1.docx"
+          path: "/NEXT Data/ESE 2022-23/BCACCA4101_2_IV_BCA_BIGDATAANALYSIS_ Set 1.docx"
         },
         {
           title: "Design & Analysis of Algorithms",
-          path: "/STED-FY Data/ESE 2022-23/BCACCA4102 _II_IV_B.C.A_DAA_ Set 1.docx"
+          path: "/NEXT Data/ESE 2022-23/BCACCA4102 _II_IV_B.C.A_DAA_ Set 1.docx"
         },
         {
           title: "Advanced Java",
-          path: "/STED-FY Data/ESE 2022-23/BCACCA4103_2_IV_BCA_BCACCA41  adv java.docx"
+          path: "/NEXT Data/ESE 2022-23/BCACCA4103_2_IV_BCA_BCACCA41  adv java.docx"
         },
         {
           title: "PHP & MySQL",
-          path: "/STED-FY Data/ESE 2022-23/BCACCA4104_2nd Year_4th Semester_BCA_Phpmysql_ Set 1.docx"
+          path: "/NEXT Data/ESE 2022-23/BCACCA4104_2nd Year_4th Semester_BCA_Phpmysql_ Set 1.docx"
         },
         {
           title: "E-commerce",
-          path: "/STED-FY Data/ESE 2022-23/BCAECA4111_E-commerce_2nd _4th_BCA_ Set 1.docx"
+          path: "/NEXT Data/ESE 2022-23/BCAECA4111_E-commerce_2nd _4th_BCA_ Set 1.docx"
         }
       ]
     },
@@ -104,39 +114,39 @@ const Exams = () => {
       subjects: [
         {
           title: "Fundamentals of AI",
-          path: "/STED-FY Data/ESE 2022-23/BASCCA1105_I Year_ISemester__BCA (AIDS)_Fundamentals of AI _ Set 1.docx"
+          path: "/NEXT Data/ESE 2022-23/BASCCA1105_I Year_ISemester__BCA (AIDS)_Fundamentals of AI _ Set 1.docx"
         },
         {
           title: "Introduction to Data Science",
-          path: "/STED-FY Data/ESE 2022-23/BASCCA2105_1stYear_2ndSemester_BCA_Introduction to Data Science_ Set 1.docx"
+          path: "/NEXT Data/ESE 2022-23/BASCCA2105_1stYear_2ndSemester_BCA_Introduction to Data Science_ Set 1.docx"
         },
         {
           title: "Python Programming",
-          path: "/STED-FY Data/ESE 2022-23/BADCCA2105_Python_Prog_ESE_2021-22(E)_Set_2 Back.docx"
+          path: "/NEXT Data/ESE 2022-23/BADCCA2105_Python_Prog_ESE_2021-22(E)_Set_2 Back.docx"
         },
         {
           title: "RPA (Robotic Process Automation)",
-          path: "/STED-FY Data/ESE 2022-23/BASCCA3104_2022_III_BCA_RPA_ Set 1 - Pratik Goswami.docx"
+          path: "/NEXT Data/ESE 2022-23/BASCCA3104_2022_III_BCA_RPA_ Set 1 - Pratik Goswami.docx"
         },
         {
           title: "Machine Learning",
-          path: "/STED-FY Data/ESE 2022-23/BASCCA4103_2022_2023_4th_Semester_BCA(AIDS)_Machine_Learning_ Set 1.docx"
+          path: "/NEXT Data/ESE 2022-23/BASCCA4103_2022_2023_4th_Semester_BCA(AIDS)_Machine_Learning_ Set 1.docx"
         },
         {
           title: "R Programming",
-          path: "/STED-FY Data/ESE 2022-23/BASCCA4104_IV_Semester_BCA_RP_ Set 1.docx"
+          path: "/NEXT Data/ESE 2022-23/BASCCA4104_IV_Semester_BCA_RP_ Set 1.docx"
         },
         {
           title: "Artificial Neural Networks",
-          path: "/STED-FY Data/ESE 2022-23/BAP05102_ANN_Set 1 - Shikha Sharma.docx"
+          path: "/NEXT Data/ESE 2022-23/BAP05102_ANN_Set 1 - Shikha Sharma.docx"
         },
         {
           title: "Digital Image Processing",
-          path: "/STED-FY Data/ESE 2022-23/BAP05103_Digital Image Processing_ESE_2022-23(O)_Set No. -1.docx"
+          path: "/NEXT Data/ESE 2022-23/BAP05103_Digital Image Processing_ESE_2022-23(O)_Set No. -1.docx"
         },
         {
           title: "Natural Language Processing",
-          path: "/STED-FY Data/ESE 2022-23/BAP05104_3_5_BCA(AI)_NaturalLanguageProcessing_Set_1 - Bindiya Jain.docx"
+          path: "/NEXT Data/ESE 2022-23/BAP05104_3_5_BCA(AI)_NaturalLanguageProcessing_Set_1 - Bindiya Jain.docx"
         }
       ]
     },
@@ -146,51 +156,51 @@ const Exams = () => {
       subjects: [
         {
           title: "Introduction to AI",
-          path: "/STED-FY Data/ESE 2022-23/BADCCE1107_I_I_BTECH(AI_DS(_INTRODUCTION TO AI_ Set 1.docx"
+          path: "/NEXT Data/ESE 2022-23/BADCCE1107_I_I_BTECH(AI_DS(_INTRODUCTION TO AI_ Set 1.docx"
         },
         {
           title: "Operating System",
-          path: "/STED-FY Data/ESE 2022-23/BAI_BCC_BDS04101_Operating System_SET 2 Back.docx"
+          path: "/NEXT Data/ESE 2022-23/BAI_BCC_BDS04101_Operating System_SET 2 Back.docx"
         },
         {
           title: "Advanced Machine Learning",
-          path: "/STED-FY Data/ESE 2022-23/BAI06101_Advanced Machine Learning_Final.docx"
+          path: "/NEXT Data/ESE 2022-23/BAI06101_Advanced Machine Learning_Final.docx"
         },
         {
           title: "Digital Image Processing",
-          path: "/STED-FY Data/ESE 2022-23/BAI06102_IIIYear_VISemester_B.tech_Digital Image Processing_ Set 1.docx"
+          path: "/NEXT Data/ESE 2022-23/BAI06102_IIIYear_VISemester_B.tech_Digital Image Processing_ Set 1.docx"
         },
         {
           title: "Natural Language Processing",
-          path: "/STED-FY Data/ESE 2022-23/BAI06103_III_VI_B.Tech_NLP_ Set 1.docx"
+          path: "/NEXT Data/ESE 2022-23/BAI06103_III_VI_B.Tech_NLP_ Set 1.docx"
         },
         {
           title: "Recommender Systems",
-          path: "/STED-FY Data/ESE 2022-23/BAI06110__ Recommender System_Set2 Back.docx"
+          path: "/NEXT Data/ESE 2022-23/BAI06110__ Recommender System_Set2 Back.docx"
         },
         {
           title: "Deep Learning",
-          path: "/STED-FY Data/ESE 2022-23/BAI07101 -2022- VII- B.tech- Deep-learning ,Set- 1.docx"
+          path: "/NEXT Data/ESE 2022-23/BAI07101 -2022- VII- B.tech- Deep-learning ,Set- 1.docx"
         },
         {
           title: "Computer Vision",
-          path: "/STED-FY Data/ESE 2022-23/BAI07102 -2022- VII- B.tech- Computer vision ,Set- 1.docx"
+          path: "/NEXT Data/ESE 2022-23/BAI07102 -2022- VII- B.tech- Computer vision ,Set- 1.docx"
         },
         {
           title: "Chatbot Development",
-          path: "/STED-FY Data/ESE 2022-23/BAI07103 -2022-VII-B.tech- chatbot development ,Set- 1.docx"
+          path: "/NEXT Data/ESE 2022-23/BAI07103 -2022-VII-B.tech- chatbot development ,Set- 1.docx"
         },
         {
           title: "Intelligent Process Automation",
-          path: "/STED-FY Data/ESE 2022-23/BAI07104_2022_VII_B.tech_Intelligent_Process_Automation_Set1.docx"
+          path: "/NEXT Data/ESE 2022-23/BAI07104_2022_VII_B.tech_Intelligent_Process_Automation_Set1.docx"
         },
         {
           title: "Business Intelligence",
-          path: "/STED-FY Data/ESE 2022-23/BAI07108 -2022-VII-B.tech- business-Intelligence   ,Set- 1.docx"
+          path: "/NEXT Data/ESE 2022-23/BAI07108 -2022-VII-B.tech- business-Intelligence   ,Set- 1.docx"
         },
         {
           title: "NoSQL Databases",
-          path: "/STED-FY Data/ESE 2022-23/BAI05103-BDS05102 _III_V_B.Tech_NoSQL Databases_ Set 1 - Neha Jain.docx"
+          path: "/NEXT Data/ESE 2022-23/BAI05103-BDS05102 _III_V_B.Tech_NoSQL Databases_ Set 1 - Neha Jain.docx"
         }
       ]
     },
@@ -200,55 +210,55 @@ const Exams = () => {
       subjects: [
         {
           title: "Information Security Fundamentals",
-          path: "/STED-FY Data/ESE 2022-23/BCC03109 -BCE03109_Information Security Fundamentals_ Set 2.docx"
+          path: "/NEXT Data/ESE 2022-23/BCC03109 -BCE03109_Information Security Fundamentals_ Set 2.docx"
         },
         {
           title: "Ethical Hacking",
-          path: "/STED-FY Data/ESE 2022-23/BCC05101_III_V_B. Tech_Ethical_Hacking_ Set 1.docx"
+          path: "/NEXT Data/ESE 2022-23/BCC05101_III_V_B. Tech_Ethical_Hacking_ Set 1.docx"
         },
         {
           title: "Server Installation & Configuration",
-          path: "/STED-FY Data/ESE 2022-23/BCC05102 -Set-A-Installation and Configuration of Server_ESE - Rishi Kumar Sharma.docx"
+          path: "/NEXT Data/ESE 2022-23/BCC05102 -Set-A-Installation and Configuration of Server_ESE - Rishi Kumar Sharma.docx"
         },
         {
           title: "Virtualization & Cloud Computing",
-          path: "/STED-FY Data/ESE 2022-23/BCC05103_ B.tech 3rd Year_5Sem_Virtualization _ Cloud Computing_ Set 1.docx"
+          path: "/NEXT Data/ESE 2022-23/BCC05103_ B.tech 3rd Year_5Sem_Virtualization _ Cloud Computing_ Set 1.docx"
         },
         {
           title: "Linux Server Administration",
-          path: "/STED-FY Data/ESE 2022-23/BCC06103 LINUX SERVER ADMINISTRATION_ESE_2022-23(O)_Set No. (A).docx"
+          path: "/NEXT Data/ESE 2022-23/BCC06103 LINUX SERVER ADMINISTRATION_ESE_2022-23(O)_Set No. (A).docx"
         },
         {
           title: "Cyber Forensics",
-          path: "/STED-FY Data/ESE 2022-23/BCC06104_Cyber forensic_SET 2 Back.docx"
+          path: "/NEXT Data/ESE 2022-23/BCC06104_Cyber forensic_SET 2 Back.docx"
         },
         {
           title: "Storage and Data Center",
-          path: "/STED-FY Data/ESE 2022-23/BCC06108_2023_VIth_B.Tech_Storage and Data Center_ Set 1.docx"
+          path: "/NEXT Data/ESE 2022-23/BCC06108_2023_VIth_B.Tech_Storage and Data Center_ Set 1.docx"
         },
         {
           title: "Client Side Scripting",
-          path: "/STED-FY Data/ESE 2022-23/BCC06109_CSS_ Back.docx"
+          path: "/NEXT Data/ESE 2022-23/BCC06109_CSS_ Back.docx"
         },
         {
           title: "Cloud Migration",
-          path: "/STED-FY Data/ESE 2022-23/BCC07101_2022_Sem VII_B.Tech_Cloud Migration_Set 1.doc"
+          path: "/NEXT Data/ESE 2022-23/BCC07101_2022_Sem VII_B.Tech_Cloud Migration_Set 1.doc"
         },
         {
           title: "Cloud Deployment",
-          path: "/STED-FY Data/ESE 2022-23/BCC07102_2022_Sem VII_B.Tech_Cloud Deployment_Set 1.docx"
+          path: "/NEXT Data/ESE 2022-23/BCC07102_2022_Sem VII_B.Tech_Cloud Deployment_Set 1.docx"
         },
         {
           title: "Server Security Management",
-          path: "/STED-FY Data/ESE 2022-23/BCC07103_2022_Sem VII_B.Tech_Server Security Management_Set 1.docx"
+          path: "/NEXT Data/ESE 2022-23/BCC07103_2022_Sem VII_B.Tech_Server Security Management_Set 1.docx"
         },
         {
           title: "Cloud Web Services",
-          path: "/STED-FY Data/ESE 2022-23/BCC07104_2022_Sem VII_B.Tech_CWS - Set-1.docx"
+          path: "/NEXT Data/ESE 2022-23/BCC07104_2022_Sem VII_B.Tech_CWS - Set-1.docx"
         },
         {
           title: "Advanced Server Side Scripting",
-          path: "/STED-FY Data/ESE 2022-23/BCC07109_2022_VII_B.tech_Advanced_Server_Side_Scripting_Language_set-1.docx"
+          path: "/NEXT Data/ESE 2022-23/BCC07109_2022_VII_B.tech_Advanced_Server_Side_Scripting_Language_set-1.docx"
         }
       ]
     },
@@ -258,31 +268,31 @@ const Exams = () => {
       subjects: [
         {
           title: "Object Oriented Analysis & Design",
-          path: "/STED-FY Data/ESE 2022-23/BAP03103  BCA03103  BCT03103  BCM03103 ESE - OOAD -Set 2.docx"
+          path: "/NEXT Data/ESE 2022-23/BAP03103  BCA03103  BCT03103 ESE - OOAD -Set 2.docx"
         },
         {
           title: "Big Data",
-          path: "/STED-FY Data/ESE 2022-23/BAP03107.3 ESE - Big Data - Set 2 Back.docx"
+          path: "/NEXT Data/ESE 2022-23/BAP03107.3 ESE - Big Data - Set 2 Back.docx"
         },
         {
           title: "Discrete Mathematics",
-          path: "/STED-FY Data/ESE 2022-23/BAP03104_Elements of Discrete Mathematics_Set_2 Back.docx"
+          path: "/NEXT Data/ESE 2022-23/BAP03104_Elements of Discrete Mathematics_Set_2 Back.docx"
         },
         {
           title: "Analysis of Algorithms",
-          path: "/STED-FY Data/ESE 2022-23/BAP04103_ADA_2_2021-22(E)_ESE Back.docx"
+          path: "/NEXT Data/ESE 2022-23/BAP04103_ADA_2_2021-22(E)_ESE Back.docx"
         },
         {
           title: "Numerical Techniques",
-          path: "/STED-FY Data/ESE 2022-23/BAP04104_Computer based numerical techniques_1_2021-22_ESE_Set B Back.docx"
+          path: "/NEXT Data/ESE 2022-23/BAP04104_Computer based numerical techniques_1_2021-22_ESE_Set B Back.docx"
         },
         {
           title: "Business Process Management",
-          path: "/STED-FY Data/ESE 2022-23/BAP05101_IIIYear_VSemester_BCA(AI_PA)_BPM_Set 2.docx"
+          path: "/NEXT Data/ESE 2022-23/BAP05101_IIIYear_VSemester_BCA(AI_PA)_BPM_Set 2.docx"
         },
         {
           title: "RPA Tools",
-          path: "/STED-FY Data/ESE 2022-23/BADCCE4104_2023_IVth_B.Tech_RPA Tool_ Set 1.docx"
+          path: "/NEXT Data/ESE 2022-23/BADCCE4104_2023_IVth_B.Tech_RPA Tool_ Set 1.docx"
         }
       ]
     },
@@ -292,35 +302,35 @@ const Exams = () => {
       subjects: [
         {
           title: "Management Concepts",
-          path: "/STED-FY Data/MBA/MBX03101_SET 1.pdf"
+          path: "/NEXT Data/MBA/MBX03101_SET 1.pdf"
         },
         {
           title: "Organizational Behavior",
-          path: "/STED-FY Data/MBA/MBX03102_SET 1.pdf"
+          path: "/NEXT Data/MBA/MBX03102_SET 1.pdf"
         },
         {
           title: "Managerial Economics",
-          path: "/STED-FY Data/MBA/MBX03103_SET 1.pdf"
+          path: "/NEXT Data/MBA/MBX03103_SET 1.pdf"
         },
         {
           title: "Business Statistics",
-          path: "/STED-FY Data/MBA/MBX03104_SET 1.pdf"
+          path: "/NEXT Data/MBA/MBX03104_SET 1.pdf"
         },
         {
           title: "Financial Management",
-          path: "/STED-FY Data/MBA/MBX03118_Set 1.pdf"
+          path: "/NEXT Data/MBA/MBX03118_Set 1.pdf"
         },
         {
           title: "Marketing Management",
-          path: "/STED-FY Data/MBA/MBX03119_SET 1.pdf"
+          path: "/NEXT Data/MBA/MBX03119_SET 1.pdf"
         },
         {
           title: "Operations Management",
-          path: "/STED-FY Data/MBA/MBX03126_SET 1.pdf"
+          path: "/NEXT Data/MBA/MBX03126_SET 1.pdf"
         },
         {
           title: "Human Resource Management",
-          path: "/STED-FY Data/MBA/MBX03127_SET 1.pdf"
+          path: "/NEXT Data/MBA/MBX03127_SET 1.pdf"
         }
       ]
     },
@@ -331,52 +341,52 @@ const Exams = () => {
         // Core Subjects - Semester 3
         {
           title: "Business Communication",
-          path: "/STED-FY Data/BBA/BBX03101_BBB03101_BBC03101_SET A.pdf"
+          path: "/NEXT Data/BBA/BBX03101_BBB03101_BBC03101_SET A.pdf"
         },
         {
           title: "Business Law",
-          path: "/STED-FY Data/BBA/BBX03102_BBB03102_BBC03102_SET_A.pdf"
+          path: "/NEXT Data/BBA/BBX03102_BBB03102_BBC03102_SET_A.pdf"
         },
         {
           title: "Financial Management",
-          path: "/STED-FY Data/BBA/BBX03103_BBB03103_BBC03103_SET_A.pdf"
+          path: "/NEXT Data/BBA/BBX03103_BBB03103_BBC03103_SET_A.pdf"
         },
         {
           title: "Marketing Management",
-          path: "/STED-FY Data/BBA/BBX03104_BBB03104_BBC03104_SETA.pdf"
+          path: "/NEXT Data/BBA/BBX03104_BBB03104_BBC03104_SETA.pdf"
         },
         {
           title: "Business Environment",
-          path: "/STED-FY Data/BBA/BBX03106_Set A.pdf"
+          path: "/NEXT Data/BBA/BBX03106_Set A.pdf"
         },
         {
           title: "Human Resource Management",
-          path: "/STED-FY Data/BBA/BBX03107_BBB03107_BBC03107_SET A.pdf"
+          path: "/NEXT Data/BBA/BBX03107_BBB03107_BBC03107_SET A.pdf"
         },
         // Core Subjects - Semester 5
         {
           title: "Business Ethics",
-          path: "/STED-FY Data/BBA/BBX05101_BBB05101_BBC05101_Set A.pdf"
+          path: "/NEXT Data/BBA/BBX05101_BBB05101_BBC05101_Set A.pdf"
         },
         {
           title: "Operations Management",
-          path: "/STED-FY Data/BBA/BBX05102_BBB05102_BBC05102_Set A.pdf"
+          path: "/NEXT Data/BBA/BBX05102_BBB05102_BBC05102_Set A.pdf"
         },
         {
           title: "Research Methodology",
-          path: "/STED-FY Data/BBA/BBX05103_BBB05103_BBC05103_Set A.pdf"
+          path: "/NEXT Data/BBA/BBX05103_BBB05103_BBC05103_Set A.pdf"
         },
         {
           title: "Entrepreneurship Development",
-          path: "/STED-FY Data/BBA/BBX05104_BBB05104_BBC05104_SET 1.pdf"
+          path: "/NEXT Data/BBA/BBX05104_BBB05104_BBC05104_SET 1.pdf"
         },
         {
           title: "Strategic Management",
-          path: "/STED-FY Data/BBA/BBX05105_SET A.pdf"
+          path: "/NEXT Data/BBA/BBX05105_SET A.pdf"
         },
         {
           title: "International Business",
-          path: "/STED-FY Data/BBA/BBX05106_SET A.pdf"
+          path: "/NEXT Data/BBA/BBX05106_SET A.pdf"
         }
       ]
     },
@@ -387,53 +397,296 @@ const Exams = () => {
         // Semester 3
         {
           title: "Financial Accounting",
-          path: "/STED-FY Data/B. Com/BCO03101_BCH03101_Set A.pdf"
+          path: "/NEXT Data/B. Com/BCO03101_BCH03101_Set A.pdf"
         },
         {
           title: "Business Statistics",
-          path: "/STED-FY Data/B. Com/BCO03102_BCH03102_Set A.pdf"
+          path: "/NEXT Data/B. Com/BCO03102_BCH03102_Set A.pdf"
         },
         {
           title: "Business Law",
-          path: "/STED-FY Data/B. Com/BCO03103_BCH03103_Set A.pdf"
+          path: "/NEXT Data/B. Com/BCO03103_BCH03103_Set A.pdf"
         },
         {
           title: "Corporate Accounting",
-          path: "/STED-FY Data/B. Com/BCO03104_BCH03104_Set A.pdf"
+          path: "/NEXT Data/B. Com/BCO03104_BCH03104_Set A.pdf"
         },
         {
           title: "Business Environment",
-          path: "/STED-FY Data/B. Com/BCO03105_BCH03105_Set A.pdf"
+          path: "/NEXT Data/B. Com/BCO03105_BCH03105_Set A.pdf"
         },
         {
           title: "Auditing",
-          path: "/STED-FY Data/B. Com/BCH03106_Auditing_ Set A.pdf"
+          path: "/NEXT Data/B. Com/BCH03106_Auditing_ Set A.pdf"
         },
         // Semester 5
         {
           title: "Income Tax",
-          path: "/STED-FY Data/B. Com/BCO05101_BCH05101_Set A.pdf"
+          path: "/NEXT Data/B. Com/BCO05101_BCH05101_Set A.pdf"
         },
         {
           title: "Cost Accounting",
-          path: "/STED-FY Data/B. Com/BCO05102_BCH05102_Set A.pdf"
+          path: "/NEXT Data/B. Com/BCO05102_BCH05102_Set A.pdf"
         },
         {
           title: "Management Accounting",
-          path: "/STED-FY Data/B. Com/BCO05103_BCH05103_SET A.pdf"
+          path: "/NEXT Data/B. Com/BCO05103_BCH05103_SET A.pdf"
         },
         {
           title: "Banking and Insurance",
-          path: "/STED-FY Data/B. Com/BCO05104_BCH05104_Set A.pdf"
+          path: "/NEXT Data/B. Com/BCO05104_BCH05104_Set A.pdf"
         },
         {
           title: "Financial Markets",
-          path: "/STED-FY Data/B. Com/BCO05105_BCH05105_Set A.pdf"
+          path: "/NEXT Data/B. Com/BCO05105_BCH05105_Set A.pdf"
         },
         {
           title: "International Business",
-          path: "/STED-FY Data/B. Com/BCO05106_BCH05106_Set A.pdf"
+          path: "/NEXT Data/B. Com/BCO05106_BCH05106_Set A.pdf"
         }
+      ]
+    },
+    // New BCA 1st Year (2nd Semester)
+    "bca-1st-year": {
+      title: "BCA 1st Year",
+      subjects: [
+        {
+          title: "Environment & Sustainability",
+          path: "/NEXT Data/BCA 1 Year( II Sem)/Environment & Sustainability.pdf"
+        },
+        {
+          title: "Basic of Mathematics",
+          path: "/NEXT Data/BCA 1 Year( II Sem)/Basic of Mathematics.pdf"
+        },
+        {
+          title: "Software Engineering",
+          path: "/NEXT Data/BCA 1 Year( II Sem)/Software Engineering.pdf"
+        },
+        {
+          title: "Linux and Shell Script",
+          path: "/NEXT Data/BCA 1 Year( II Sem)/Linux and Shell Script.pdf"
+        },
+        {
+          title: "Python Programming",
+          path: "/NEXT Data/BCA 1 Year( II Sem)/Python Programming.pdf"
+        },
+        {
+          title: "Computer Networks",
+          path: "/NEXT Data/BCA 1 Year( II Sem)/Computer Networks.pdf"
+        }
+      ]
+    },
+    // BCA 2nd Year (4th Semester)
+    "bca-2nd-year": {
+      title: "BCA 2nd Year",
+      subjects: [
+        {
+          title: "Cyber Forensics",
+          path: "/NEXT Data/BCA 2 Year(IV Sem)/APR24_BCYCCA4103_Cyber Forensics.pdf"
+        },
+        {
+          title: "Application Security",
+          path: "/NEXT Data/BCA 2 Year(IV Sem)/APR24_BCYCCA4104_Application Security.pdf"
+        },
+        {
+          title: "Advanced Java Programming",
+          path: "/NEXT Data/BCA 2 Year(IV Sem)/APR24_BCACCA4103_Advance Java Programming.pdf"
+        },
+        {
+          title: "Design and Analysis of Algorithm",
+          path: "/NEXT Data/BCA 2 Year(IV Sem)/APR24_BCACCA4102_-Design and Analysis of Algorithm.pdf"
+        },
+        {
+          title: "R Programming",
+          path: "/NEXT Data/BCA 2 Year(IV Sem)/APR24_BASCCA4104__R Programming.pdf"
+        },
+        {
+          title: "Machine Learning",
+          path: "/NEXT Data/BCA 2 Year(IV Sem)/APR24_BASCCA4103__Machine Learning .pdf"
+        },
+        {
+          title: "Game Testing",
+          path: "/NEXT Data/BCA 2 Year(IV Sem)/APR24_BGGCCA4104_Game  Testing.pdf"
+        },
+        {
+          title: "Cloud Web Services",
+          path: "/NEXT Data/BCA 2 Year(IV Sem)/APR24_BCTCCA4103_Cloud Web Services.pdf"
+        },
+        {
+          title: "Pixi.JS",
+          path: "/NEXT Data/BCA 2 Year(IV Sem)/APR24_BGGCCA4103_Pixi.JS.pdf"
+        },
+        {
+          title: "Big Data Analysis",
+          path: "/NEXT Data/BCA 2 Year(IV Sem)/APR24_BCACCA4101_Big Data Analysis.pdf"
+        },
+        {
+          title: "Network Administration",
+          path: "/NEXT Data/BCA 2 Year(IV Sem)/APR24_BCTCCA4104_Network Administration.pdf"
+        },
+        {
+          title: "Software Project Management",
+          path: "/NEXT Data/BCA 2 Year(IV Sem)/BCAECA4112-Software_Project_Management_Set_A.pdf"
+        },
+        {
+          title: "Android Application Development",
+          path: "/NEXT Data/BCA 2 Year(IV Sem)/BMFCCA4104-Introduction_to_Android_Application_Development_Set_A.pdf"
+        },
+        {
+          title: "Backend Development with Node.js",
+          path: "/NEXT Data/BCA 2 Year(IV Sem)/APR24_BMFCCA4103_Backend Development with Node JS.pdf"
+        },
+        {
+          title: "PHP & MySQL",
+          path: "/NEXT Data/BCA 2 Year(IV Sem)/APR24_BCACCA4104_PhP & MySql.pdf"
+        }
+      ]
+    },
+    // Game Development Specialization
+    "bca-game-dev": {
+      title: "BCA (Game Development)",
+      subjects: [
+        {
+          title: "Game Testing",
+          path: "/NEXT Data/BCA 2 Year(IV Sem)/APR24_BGGCCA4104_Game  Testing.pdf"
+        },
+        {
+          title: "Pixi.JS",
+          path: "/NEXT Data/BCA 2 Year(IV Sem)/APR24_BGGCCA4103_Pixi.JS.pdf"
+        }
+      ]
+    },
+    // Mobile & Frontend Development
+    "bca-mobile-frontend": {
+      title: "BCA (Mobile & Frontend)",
+      subjects: [
+        {
+          title: "Android Application Development",
+          path: "/NEXT Data/BCA 2 Year(IV Sem)/BMFCCA4104-Introduction_to_Android_Application_Development_Set_A.pdf"
+        },
+        {
+          title: "Backend Development with Node.js",
+          path: "/NEXT Data/BCA 2 Year(IV Sem)/APR24_BMFCCA4103_Backend Development with Node JS.pdf"
+        }
+      ]
+    },
+    // B.Tech AI & DS
+    "btech-ai-ds": {
+      title: "B.Tech (AI & DS)",
+      subjects: [
+        {
+          title: "End Semester Exam",
+          path: "/NEXT Data/B.Tech (AI&DS)/End sem/ESE_AIDS.pdf"
+        }
+      ]
+    },
+    // B.Des
+    "bdes": {
+      title: "Bachelor of Design",
+      subjects: [
+        {
+          title: "Design Materials",
+          path: "/NEXT Data/B. Des"
+        }
+      ]
+    },
+    // B.Arch
+    "barch": {
+      title: "Bachelor of Architecture",
+      subjects: [
+        {
+          title: "Architecture Materials",
+          path: "/NEXT Data/B. Arch"
+        }
+      ]
+    },
+    // Civil Engineering
+    "civil": {
+      title: "Civil Engineering",
+      subjects: [
+        {
+          title: "End Semester Exam 1 (2023)",
+          path: "/NEXT Data/Civil/End sem/civil_end_sem-1_2023.jpg"
+        },
+        {
+          title: "End Semester Exam 2 (2023)",
+          path: "/NEXT Data/Civil/End sem/civil_end_sem-2_2023.jpg"
+        }
+      ]
+    },
+    // Electrical Engineering
+    "eee": {
+      title: "Electrical Engineering",
+      subjects: [
+        {
+          title: "End Semester Exam (2022)",
+          path: "/NEXT Data/Eee/End sem/ESE_SEM1_2022.pdf"
+        },
+        {
+          title: "End Semester Exam Sem 1 (2023)",
+          path: "/NEXT Data/Eee/End sem/ESE_SEM1_2023.pdf"
+        },
+        {
+          title: "End Semester Exam Sem 2 (2023)",
+          path: "/NEXT Data/Eee/End sem/ESE_SEM2_2023.jpg"
+        }
+      ]
+    },
+    // Digital Electronics
+    "de": {
+      title: "Digital Electronics",
+      subjects: [
+        {
+          title: "End Semester Exam",
+          path: "/NEXT Data/DE/End sem/ESE_DE.jpg"
+        }
+      ]
+    },
+    // Visual Arts
+    "bva": {
+      title: "Bachelor of Visual Arts",
+      subjects: [
+        {
+          title: "Visual Arts Materials",
+          path: "/NEXT Data/BVA"
+        }
+      ]
+    },
+    // Mathematics
+    "mathematics": {
+      title: "Mathematics",
+      subjects: [
+        {
+          title: "Mathematics Notes and Materials",
+          path: "/NEXT Data/Maths-20250603T132655Z-1-001/Maths"
+        }
+      ]
+    },
+    // Environmental Studies
+    "environmental-studies": {
+      title: "Environmental Studies",
+      subjects: [
+        {
+          title: "End Semester Exam",
+          path: "/NEXT Data/Environmental Studies/End sem/ESE_EVS.jpg"
+        }
+      ]
+    },
+    // English
+    "english": {
+      title: "English",
+      subjects: [
+        {
+          title: "End Semester Materials",
+          path: "/NEXT Data/English/End sem"
+        }
+      ]
+    },
+    // MCA 1st Year
+    "mca-1st-year": {
+      title: "MCA 1st Year",
+      subjects: [
+        // Add subjects from MCA 1 year directory
       ]
     }
   };
@@ -441,14 +694,16 @@ const Exams = () => {
   const departmentIcons = {
     "Computer Science": <ComputerDesktopIcon className="h-12 w-12" />,
     "Management": <BriefcaseIcon className="h-12 w-12" />,
-    "Commerce": <CalculatorIcon className="h-12 w-12" />
+    "Commerce": <CalculatorIcon className="h-12 w-12" />,
+    "Engineering": <WrenchIcon className="h-12 w-12" />
   };
 
   const getBackgroundColor = (department) => {
     const colors = {
       "Computer Science": "from-blue-500 to-indigo-600",
       "Management": "from-violet-500 to-purple-600",
-      "Commerce": "from-emerald-500 to-green-600"
+      "Commerce": "from-emerald-500 to-green-600",
+      "Engineering": "from-cyan-500 to-blue-600"
     };
     return colors[department] || "from-gray-500 to-gray-600";
   };

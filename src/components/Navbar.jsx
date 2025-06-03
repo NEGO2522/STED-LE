@@ -24,7 +24,7 @@ const Navbar = () => {
   const isActive = (path) => location.pathname === path
 
   const navItems = [
-    { path: '/subjects', label: 'Question Bank' },
+    { path: '/subjects', label: 'Syllabus' },
     { path: '/exams', label: "PYQ's" },
     { path: '/articles', label: 'Notes' },
     { path: '/tips', label: 'Tips & Tricks' },
@@ -64,7 +64,7 @@ const Navbar = () => {
               className="group"
             >
               <span className="text-xl font-semibold text-gray-900 hover:text-primary-600 transition-colors duration-200 dark:text-white dark:hover:text-primary-400">
-                STED-FY Study Hub
+                NEXT Study Hub
               </span>
             </Link>
           </div>

@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import { DarkModeProvider } from './context/DarkModeContext';
+import { Toaster } from 'react-hot-toast';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Home from './pages/Home';
@@ -18,7 +19,7 @@ import Subjects from './pages/Subjects'
 import Exams from './pages/Exams'
 import Articles from './pages/Articles'
 import Community from './pages/Community'
-import Profile from './pages/Profile'
+import Syllabus from './pages/Syllabus'
 
 // Wrapper component to handle conditional footer rendering
 const AppContent = () => {
@@ -63,7 +64,7 @@ const AppContent = () => {
             path="/subjects"
             element={
               <ProtectedRoute>
-                <Subjects />
+                <Syllabus />
               </ProtectedRoute>
             }
           />
@@ -83,17 +84,25 @@ const AppContent = () => {
               </ProtectedRoute>
             }
           />
-          <Route
-            path="/profile"
-            element={
-              <ProtectedRoute>
-                <Profile />
-              </ProtectedRoute>
-            }
-          />
         </Routes>
       </main>
       {!isAuthPage && <Footer />}
+      <Toaster 
+        position="top-right"
+        toastOptions={{
+          duration: 3000,
+          style: {
+            background: '#333',
+            color: '#fff',
+          },
+          success: {
+            duration: 3000,
+            theme: {
+              primary: '#4aed88',
+            },
+          },
+        }}
+      />
     </div>
   );
 };
