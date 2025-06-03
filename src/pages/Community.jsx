@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { db, auth } from '../config/firebase';
+import { auth } from '../firebase/config';
+import { getFirestore } from 'firebase/firestore';
+import app from '../firebase/config';
 import {
   collection,
   addDoc,
@@ -30,6 +32,8 @@ import {
 } from '@heroicons/react/24/outline';
 import { HeartIcon as HeartIconSolid } from '@heroicons/react/24/solid';
 import moment from 'moment';
+
+const db = getFirestore(app);
 
 const CATEGORIES = {
   webdev: {

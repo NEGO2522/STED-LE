@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
-import { Bars3Icon, XMarkIcon, SunIcon, MoonIcon } from '@heroicons/react/24/outline'
+import { Bars3Icon, XMarkIcon, SunIcon, MoonIcon, CloudArrowUpIcon } from '@heroicons/react/24/outline'
 import { useAuth } from '../context/AuthContext'
 import ProfileDropdown from './ProfileDropdown'
 import { useDarkMode } from '../context/DarkModeContext'

@@ -8,9 +8,13 @@ import {
   onAuthStateChanged,
   updateProfile as firebaseUpdateProfile 
 } from 'firebase/auth';
-import { auth, googleProvider, githubProvider } from '../config/firebase';
+import { auth } from '../firebase/config';
+import { GoogleAuthProvider, GithubAuthProvider } from 'firebase/auth';
 
 const AuthContext = createContext(null);
+
+const googleProvider = new GoogleAuthProvider();
+const githubProvider = new GithubAuthProvider();
 
 export const useAuth = () => {
   const context = useContext(AuthContext);
