@@ -20,6 +20,7 @@ import Exams from './pages/Exams'
 import Articles from './pages/Articles'
 import Community from './pages/Community'
 import Syllabus from './pages/Syllabus'
+import { FileUpload } from './components/common/FileUpload';
 
 // Wrapper component to handle conditional footer rendering
 const AppContent = () => {
