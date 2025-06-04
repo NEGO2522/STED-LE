@@ -1,36 +1,27 @@
 import React, { useState } from 'react'
 import { AcademicCapIcon, DocumentIcon, ChevronLeftIcon, ComputerDesktopIcon, BriefcaseIcon, CalculatorIcon, BookOpenIcon, PencilIcon, WrenchIcon, PaintBrushIcon, BeakerIcon } from '@heroicons/react/24/outline'
+import JSZip from 'jszip';
+import { saveAs } from 'file-saver';
+import { listFiles } from '../firebase/storage';
+import { ref, getBlob, getDownloadURL } from 'firebase/storage';
+import { storage } from '../firebase/config';
 
 const Exams = () => {
   const [activeTab, setActiveTab] = useState(null);
   const [activeDepartment, setActiveDepartment] = useState(null);
   const [activeSpecialization, setActiveSpecialization] = useState(null);
   const [view, setView] = useState('departments'); // departments, specializations, courses, subjects
+  const [isLoading, setIsLoading] = useState(false);
+  const [downloadProgress, setDownloadProgress] = useState(0);
 
   // Define specializations for each department
   const departmentSpecializations = {
-    "Computer Science": {
-      "General": ["bca-general", "bca-1st-year", "bca-2nd-year", "mca-1st-year"],
-      "Artificial Intelligence": ["bca-ai", "btech-ai-ds"],
-      "Cloud Computing": ["btech-cloud"],
-      "Process Automation": ["bca-pa"],
-      "Game Development": ["bca-game-dev"],
-      "Mobile & Frontend": ["bca-mobile-frontend"]
-    },
-    "Management": {
-      "General": ["mba", "bba"]
-    },
-    "Commerce": {
-      "General": ["bcom"]
-    },
-    "Engineering": {
-      "Civil": ["civil"],
-      "Electrical": ["eee"],
-      "Digital Electronics": ["de"],
-      "Design": ["bdes", "barch"],
-      "Arts & Visual": ["bva"],
-      "Basic Sciences": ["mathematics", "environmental-studies", "english"]
-    }
+    "C language": ["CIE-1", "CIE-2", "Mid Semester", "End Semester"],
+    "Maths": ["CIE-1", "CIE-2", "Mid Semester", "End Semester"],
+    "English": ["CIE-1", "CIE-2", "Mid Semester", "End Semester"],
+    "Computer Networks": ["CIE-1", "CIE-2", "Mid Semester", "End Semester"],
+    "Operating System": ["CIE-1", "CIE-2", "Mid Semester", "End Semester"],
+    "Data Structure": ["CIE-1", "CIE-2", "Mid Semester", "End Semester"],
   };
 
   const courseData = {
@@ -730,6 +721,58 @@ const Exams = () => {
     }
   };
 
+  const handleDownload = async (subject) => {
+    if (subject.title === "Programming Fundamentals of C") {
+      setIsLoading(true);
+      setDownloadProgress(0);
+      
+      try {
+        // List all files in the C language directory
+        const files = await listFiles('C language/');
+        const totalFiles = files.filter(file => !file.isDirectory).length;
+        let processedFiles = 0;
+        
+        // Create an array to store download URLs
+        const downloadUrls = [];
+        
+        // Get download URLs for each file
+        for (const file of files) {
+          if (!file.isDirectory) {
+            try {
+              const fileRef = ref(storage, file.fullPath);
+              const url = await getDownloadURL(fileRef);
+              downloadUrls.push({ url, filename: file.name });
+              processedFiles++;
+              setDownloadProgress((processedFiles / totalFiles) * 100);
+            } catch (fileError) {
+              console.error(`Error getting download URL for ${file.name}:`, fileError);
+            }
+          }
+        }
+
+        // Create a hidden iframe for each download
+        downloadUrls.forEach(({ url, filename }) => {
+          const link = document.createElement('a');
+          link.href = url;
+          link.download = filename;
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+        });
+
+      } catch (error) {
+        console.error("Error downloading files:", error);
+        alert("Failed to download C programming materials. Please try again.");
+      } finally {
+        setIsLoading(false);
+        setDownloadProgress(0);
+      }
+    } else {
+      // For other subjects, you might want to handle downloads differently
+      window.open(subject.path, '_blank');
+    }
+  };
+
   const renderDepartments = () => (
     <div className="relative">
       {/* Enhanced background elements */}
@@ -926,14 +969,33 @@ const Exams = () => {
                         {subject.title}
                       </h3>
                     </div>
-                    <a
-                      href={subject.path}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center px-5 py-2.5 bg-white border-2 border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition-all duration-300 text-sm font-medium group-hover:shadow-md"
-                    >
-                      Download Material
-                    </a>
+                    <div className="space-y-3">
+                      <button
+                        onClick={() => handleDownload(subject)}
+                        disabled={isLoading}
+                        className={`inline-flex items-center px-5 py-2.5 bg-white border-2 border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition-all duration-300 text-sm font-medium group-hover:shadow-md w-full justify-center ${isLoading ? 'opacity-50 cursor-not-allowed' : ''}`}
+                      >
+                        {isLoading ? (
+                          <>
+                            <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                            Creating Zip...
+                          </>
+                        ) : (
+                          'Download Material'
+                        )}
+                      </button>
+                      {isLoading && subject.title === "Programming Fundamentals of C" && (
+                        <div className="w-full bg-gray-200 rounded-full h-2.5">
+                          <div 
+                            className="bg-blue-600 h-2.5 rounded-full transition-all duration-300" 
+                            style={{ width: `${downloadProgress}%` }}
+                          ></div>
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </div>
               ))}
